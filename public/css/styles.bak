@@ -1,0 +1,222 @@
+:root {
+  --panel-bg: rgba(20, 28, 40, 0.85);
+  --panel-border: rgba(255, 255, 255, 0.3);
+  --accent: #61dafb;
+  --text-light: #f3f7ff;
+  --text-dark: #101820;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: var(--text-light);
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  background: url('../assets/bg-game.jpg') center / cover no-repeat fixed;
+  z-index: -2;
+  transform: scale(1.03);
+  filter: brightness(0.7) saturate(1.2);
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 3.5rem;
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent);
+}
+
+.header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.panel {
+  background: var(--panel-bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 16px;
+  backdrop-filter: blur(8px);
+  padding: 28px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Iconos decorativos en panel */
+.panel .icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  opacity: 0.4;
+}
+.panel .icon.top-left {
+  top: -16px;
+  left: -16px;
+}
+.panel .icon.bottom-right {
+  bottom: -16px;
+  right: -16px;
+}
+
+/* Animaciones del index */
+.mission-panel {
+  animation: fadeInDown 0.8s ease-out;
+}
+.animated-panel {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilos de lista de misiones */
+.mission-list {
+  list-style: none;
+  padding: 0;
+}
+.mission-list li {
+  margin: 10px 0;
+}
+.mission-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color .2s, transform .2s;
+}
+.mission-link:hover {
+  color: #ffffff;
+  transform: translateX(8px);
+}
+
+/* Botón de volver al portal */
+.btn-back {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 14px;
+  background: var(--accent);
+  color: var(--text-dark);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.btn-back:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Formularios y controles */
+label {
+  display: block;
+  margin-top: 14px;
+  color: var(--text-light);
+}
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid var(--panel-border);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+}
+button {
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--text-dark);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .1s, box-shadow .2s;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--accent);
+}
+
+/* Caja de resultado */
+.result {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-dark);
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+/* Animación para tablas de resultado */
+.animate-result {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Estilo para tablas */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  color: var(--text-dark);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.table th, .table td {
+  padding: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+/* Pie de página / crédito */
+.footer {
+  text-align: center;
+  margin-top: 50px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+.footer strong {
+  color: var(--accent);
+}
+
+/* Enlaces comunes */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
